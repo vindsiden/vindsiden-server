@@ -1,6 +1,6 @@
 {
-    "name": "vindsiden-konfig",
-    "description": "Backend services related to configuration of vindsiden.no ",
+    "name": "vindsiden-server",
+    "description": "Backend services for vindsiden.no ",
     "version": "0.0.1",
     "private": true,
     "dependencies": {
