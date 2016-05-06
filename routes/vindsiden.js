@@ -1,4 +1,3 @@
-
 var    Recording   = require('../models/recording');
 
 exports.register = function(req, res) {
@@ -19,4 +18,13 @@ exports.register = function(req, res) {
         res.json({ message: 'Recording saved!' });
     });
 
+};
+
+exports.allMeasurements =  function(req, res) {
+        Recording.find(function(err, recordings) {
+            if (err)
+                res.send(err);
+
+            res.json(recordings);
+        });
 };
