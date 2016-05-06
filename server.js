@@ -1,12 +1,12 @@
-var express = require('express'),
-    vindsiden = require('./routes/vindsiden');
-
+var express = require('express');
 var app = express();
 
-app.configure(function () {
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-});
+var    vindsiden = require('./routes/vindsiden');
+var    Recording   = require('./models/recording');
+
+
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://localhost:27017');
 
 app.get('/wrm.aspx', vindsiden.register);
 
