@@ -1,8 +1,9 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
-var RecordingSchema   = new Schema({
+var MeasurementSchema   = new Schema({
     locationId: Number,
+    timestamp: Date,
     windAverage: Number,
     windMin: Number,
     windMax: Number,
@@ -10,4 +11,4 @@ var RecordingSchema   = new Schema({
     temperature: Number
 });
 
-module.exports = mongoose.model('Recording', RecordingSchema);
+module.exports = mongoose.model('Measurement', MeasurementSchema);
