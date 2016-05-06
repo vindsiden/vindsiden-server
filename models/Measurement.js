@@ -8,7 +8,8 @@ var MeasurementSchema   = new Schema({
     windMin: Number,
     windMax: Number,
     direction: Number,
-    temperature: Number
+    temperature: Number,
+    station: [{type: Schema.Types.ObjectId, ref: 'Station'}]
 });
 
 module.exports = mongoose.model('Measurement', MeasurementSchema);

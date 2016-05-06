@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
+
+var config = require('./config');
 var bodyParser = require('body-parser');
 var morgan = require('morgan')
+var mongoose   = require('mongoose');
 
 var Recording = require('./models/measurement');
 var Station = require('./models/station');
@@ -9,12 +12,10 @@ var Station = require('./models/station');
 var measurements = require('./routes/measurements');
 var stations = require('./routes/stations');
 
-var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect(config.mongodb.url);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(morgan('combined'))
 
 var router = express.Router();
