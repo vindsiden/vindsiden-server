@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan')
 
 var    vindsiden = require('./routes/vindsiden');
-var    Recording   = require('./models/recording');
+var    Recording   = require('./models/measurement');
 
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost:27017');
@@ -15,7 +15,7 @@ app.use(morgan('combined'))
 
 var router = express.Router();
 
-router.get('/wrm.aspx', vindsiden.register);
+router.get('/wrm.aspx', vindsiden.saveMeasurement);
 router.get('/measurements', vindsiden.allMeasurements)
 
 app.use('', router);
