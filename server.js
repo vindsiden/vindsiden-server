@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var port = process.env.PORT || 8000;
 
 var config = require('./config');
 var bodyParser = require('body-parser');
@@ -30,5 +31,5 @@ router.post('/v2/stations', stations.saveStation);
 
 app.use('', router);
 
-app.listen(8000);
-console.log('Listening on port 8000...');
+app.listen(port);
+console.log('Listening on port %s...', port);
