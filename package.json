@@ -1,8 +1,13 @@
 {
-    "name": "vindsiden-server",
+    "name": "vindsiden-backend",
     "description": "Backend services for vindsiden.no ",
     "version": "0.0.1",
     "private": true,
+    "main": "server.js",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development PORT=3000 node server.js",
+        "start": "cross-env NODE_ENV=production PORT=8000 node server.js"
+    },
     "dependencies": {
         "express": "~4.13.4",
         "mongoose": "~4.4.14",
