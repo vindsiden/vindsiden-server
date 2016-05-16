@@ -1,0 +1,17 @@
+path_prefix: /var/apps
+
+static:
+  vindsiden-backend:
+    - ./*
+
+environments:
+  production: &production
+    hosts: [s3c1.muda.no]
+    user:  www-data
+  default:
+    <<: *production
+
+hooks:
+  remote:
+    after:
+      - sudo /usr/sbin/service vindsiden-backend restart
