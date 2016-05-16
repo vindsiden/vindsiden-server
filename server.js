@@ -21,13 +21,14 @@ app.use(morgan('combined'))
 var router = express.Router();
 
 router.get('/wrm.aspx', measurements.saveMeasurement);
-router.get('/measurements', measurements.allMeasurements)
+router.post('/v2/measurements', measurements.saveMeasurement);
+router.get('/v2/measurements', measurements.allMeasurements)
 
-router.get('/stations', stations.findAllStations);
-router.get('/stations/:stationId', stations.findOneStation);
-router.post('/stations', stations.saveStation);
+router.get('/v2/stations', stations.findAllStations);
+router.get('/v2/stations/:stationId', stations.findOneStation);
+router.post('/v2/stations', stations.saveStation);
 
 app.use('', router);
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app.listen(8000);
+console.log('Listening on port 8000...');
