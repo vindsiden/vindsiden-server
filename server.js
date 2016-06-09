@@ -22,6 +22,7 @@ app.use(morgan('combined'))
 var router = express.Router();
 
 router.post('/wrm.aspx', measurements.saveMeasurement);
+router.get('/wrm.aspx', measurements.saveMeasurement);
 router.post('/v2/measurements', measurements.saveMeasurement);
 router.get('/v2/measurements', measurements.allMeasurements)
 
