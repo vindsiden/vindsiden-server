@@ -2,7 +2,11 @@ path_prefix: /var/apps
 
 static:
   vindsiden-backend:
-    - ./*
+    - config.js
+    - models
+    - package.json
+    - routes
+    - server.js
 
 environments:
   production: &production
@@ -14,4 +18,5 @@ environments:
 hooks:
   remote:
     after:
+      - cd /var/apps/vindsiden-backend;npm install
       - sudo /usr/sbin/service vindsiden-backend restart
